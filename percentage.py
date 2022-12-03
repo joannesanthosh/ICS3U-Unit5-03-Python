@@ -5,34 +5,56 @@
 # This program converts grade level to percentage
 
 
-def calculate_volume(length: int, width: int) -> int:
-    # calculate area
+def convert_level_percent(mark: int) -> int:
+    # This function converts mark to percentage
 
-    area = length * width
+    if mark == "4+":
+        percentage = 97
+    elif mark == "4":
+        percentage = 90
+    elif mark == "4-":
+        percentage = 83
+    elif mark == "3+":
+        percentage = 78
+    elif mark == "3":
+        percentage = 75
+    elif mark == "3-":
+        percentage = 71
+    elif mark == "2+":
+        percentage = 68
+    elif mark == "2":
+        percentage = 65
+    elif mark == "2-":
+        percentage = 61
+    elif mark == "1+":
+        percentage = 58
+    elif mark == "1":
+        percentage = 54
+    elif mark == "1-":
+        percentage = 51
+    elif mark == "R":
+        percentage = 25
+    elif mark == "NE":
+        percentage = 0
+    else:
+        percentage = -1
+    return percentage
 
-    return area
-
-def calculate_perimeter(length: int, width: int) -> int:
-    # calculate perimeter
-
-    perimeter = 2 * (length + width)
-
-    return perimeter
 
 def main():
-    # this function gets length and width
+    # this function gets the mark
 
-    # input
-    length_from_user = int(input("Enter the length of a rectangle (cm): "))
-    width_from_user = int(input("Enter the width of a rectangle (cm): "))
-    print("")
+    # Input
+    mark = input("Enter the level you want converted to percentage: ")
 
-    #call functions
-    calculated_area = calculate_area(length_from_user, width_from_user)
-    calculated_perimeter = calculate_perimeter(length_from_user, width_from_user)
+    # Call functions
+    final_percent = convert_level_percent(mark)
 
-    print("The area is {0} cm²".format(calculated_area))
-    print("The perimeter is {0} cm".format(calculated_perimeter))
+    if final_percent == -1:
+        print("\nInvalid Input")
+    else:
+        print("\nLevel {0} has a percentage of {1}%.".format(mark, final_percent))
+    print("\nDone.")
 
 
 if __name__ == "__main__":
